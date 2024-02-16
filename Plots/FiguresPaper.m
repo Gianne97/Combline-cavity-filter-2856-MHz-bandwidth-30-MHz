@@ -1,7 +1,7 @@
 clear
 close all
 
-load("results\FiguresResponse.mat")
+load("results\FiguresResponse2.mat")
 
 LineW = 1;
 
@@ -48,8 +48,11 @@ interp1(freqMeas,S11mod,f0 + DeltaPB)
 idxx = and(freqMeas > f0 - DeltaPB, freqMeas < f0 + DeltaPB);
 max(S11mod(idxx))
 
-interp1(freqMeas,S21mod,f0 - DeltaSP)
-interp1(freqMeas,S21mod,f0 + DeltaSP)
+interp1(freqMeas,S21mod,f0 - (79+1/3)/1000)
+interp1(freqMeas,S21mod,f0 + (79+1/3)/1000)
+
+interp1(freqMeas,S21mod,f0 - (80)/1000)
+interp1(freqMeas,S21mod,f0 + (80)/1000)
 
 %% Group delay
 
@@ -82,7 +85,7 @@ interp1(freqMeas,GdMeas,f0)
 
 %% Magnitude wideband response
 
-sparamWB = sparameters("C:\Users\giannetti\OneDrive - unifi.it\Università\INFN\Lavori\CavityFilter\Misure\Data20231129\wideband_2_22_GHz_2.s2p");
+sparamWB = sparameters("data\wideband_2_22_GHz_2.s2p");
 
 freqWB = sparamWB.Frequencies*1e-9;
 S11WB = mag2db(abs(squeeze(sparamWB.Parameters(1,1,:))));
@@ -115,7 +118,7 @@ box(ax3, 'on')
 
 %% Group delay ports
 
-sparamGD = sparameters("C:\Users\giannetti\OneDrive - unifi.it\Università\INFN\Lavori\CavityFilter\Misure\Data20231129\res15.s2p");
+sparamGD = sparameters("data\res15.s2p");
 gd11 = groupdelay(sparamGD,1,1)*1e9;
 gd22 = groupdelay(sparamGD,2,2)*1e9;
 freqMeasGD = sparamGD.Frequencies*1e-9;
@@ -156,7 +159,7 @@ r(2)
 
 %% Saving
 
-% exportgraphics(fig1,"figures\Sparam_magnitude.pdf")
+% exportgraphics(fig1,"figures\Sparam_magnitude_v2.pdf")
 % exportgraphics(fig2,"figures\Sparam_groupdelay.pdf")
 % exportgraphics(fig3,"figures\Sparam_magnitudeWB.pdf")
-% exportgraphics(fig4,"figures\Sparam_GDports.pdf")
+% exportgraphics(fig4,"figures\Sparam_GDports_v2.pdf")
