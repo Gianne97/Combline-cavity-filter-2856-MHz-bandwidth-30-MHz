@@ -1,7 +1,6 @@
 # Combline-cavity-filter-2856-MHz-bandwidth-30-MHz
-Files for the S-band INFN filter
+Files for the S-band filter installed at LNF-INFN
 
 The folders are:
 - Plots, containing the files needed for drawing the figures
-- TechDraws, containing the technical drawings of the realized prototype
 - CADmodel, containing the CST file for the simulation of the filter
