@@ -1,7 +1,7 @@
 clear
 close all
 
-load("results\FiguresResponse2.mat")
+load("results\FiguresResponse.mat")
 
 LineW = 1;
 
